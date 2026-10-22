@@ -70,3 +70,8 @@ src/
 ## PWA assets
 
 The manifest and service worker are in `src/main/resources/static`. The page and service worker currently refer to `/css/styles.css`, and the manifest refers to `/images/icon-192.png`; those files are not included in the project yet. Add the corresponding files under `src/main/resources/static` before relying on the stylesheet cache or app icon. Without the stylesheet, the service worker's precache step can fail.
+
+
+## Author
+
+Dr. Alfonso José Barroso Barajas
