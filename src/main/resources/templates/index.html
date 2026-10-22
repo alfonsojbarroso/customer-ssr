@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PWA with Spring Boot y Thymeleaf</title>
+    <link rel="manifest" th:href="@{/manifest.json}">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+
+<body>
+
+    <header>
+        <h1 th:text="${message}">Message</h1>
+    </header>
+
+    <main>
+        <h2>SSR with Java:</h2>
+        <ul>
+            <li th:each="item : ${items}" th:text="${item}">
+                Sample item
+            </li>
+        </ul>
+    </main>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => console.log('Service Worker successfully registered:', reg))
+                    .catch(err => console.log('Service Worker error:', err));
+            });
+        }
+    </script>
+</body>
+
+</html>
